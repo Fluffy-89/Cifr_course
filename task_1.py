@@ -1,8 +1,20 @@
-numbers = [2, -93, -2, 8, None, -44, -1, -85, -14, 90, -22, -90, -100, -8, 38, -92, -45, 67, 53, 25]
-sum_of_numbers = sum(numbers[:4] + numbers[5:])
-length = len(numbers)
-middle = sum_of_numbers / length
-numbers[4] = middle
-# TODO заменить значение пропущенного элемента средним арифметическим
+money_capital = 20000  # Подушка безопасности
+salary = 5000  # Ежемесячная зарплата
+spend = 6000  # Траты за первый месяц
+increase = 0.05  # Ежемесячный рост цен
 
-print("Измененный список:", numbers)
+months = 0
+
+while True:
+    # бюджет текущего месяца
+    budget = money_capital + salary
+
+    # Проверяем, можем ли мы покрыть расходы
+    if budget >= spend:
+        months += 1
+        money_capital -= spend - salary
+        spend *= 1 + increase
+    else:
+        break  # При бюджете меньше расходов, выходим из цикла
+
+print("Количество месяцев, которое можно протянуть без долгов:", months)
