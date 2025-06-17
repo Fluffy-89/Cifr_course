@@ -1,3 +1,6 @@
+from datetime import datetime
+
+
 class Vehicle:
     """
     Класс, представляющий транспортное средство.
@@ -22,11 +25,13 @@ class Vehicle:
         Returns:
             int: Возраст в годах.
 
+        Пример:
         >>> vehicle = Vehicle('Honda', 'Accord', 2018)
-        >>> vehicle.calculate_age()
+        >>> vehicle.calculate_age()  # Если сейчас 2025 год, вернёт 7
         7
         """
-        return 2025 - self.production_year
+        current_year = datetime.now().year
+        return current_year - self.production_year
 
     def activate(self) -> str:
         """
@@ -141,3 +146,4 @@ class Plant:
 if __name__ == '__main__':
     import doctest
     doctest.testmod()
+
