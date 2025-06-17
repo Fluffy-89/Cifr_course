@@ -45,6 +45,10 @@ class PrintedEdition(LiteraryWork):
     def __str__(self):
         return f"{super().__str__()} | Объём: {self.page_count} стр."
 
+    def __repr__(self):
+        return (f"{self.__class__.__name__}(title={self.title!r}, "
+                f"creator={self.creator!r}, page_count={self.page_count!r})")
+
 
 class AudioEdition(LiteraryWork):
     """Класс для аудиоверсий произведений."""
@@ -68,4 +72,7 @@ class AudioEdition(LiteraryWork):
 
     def __str__(self):
         return f"{super().__str__()} | Длительность: {self.length} ч."
-    
+
+    def __repr__(self):
+        return (f"{self.__class__.__name__}(title={self.title!r}, "
+                f"creator={self.creator!r}, length={self.length!r})")
